@@ -138,6 +138,24 @@ body {
             <li>
                 <input  type="submit" value="Submit" />				
             </li>
+            <table id="freeze-table"> 
+                <tr> 
+                    <apex:repeat var="f" value="{!$ObjectType.phone.FieldSets.checkfieldset}"> 
+                        <th>
+                            <apex:outputText styleClass="bold" value="{!$ObjectType.phone.Fields[f].label}"/>
+                        </th> 
+                    </apex:repeat>
+                </tr> 
+                <apex:repeat var="phone" value="{!phone}">
+                    <tr> 
+                        <apex:repeat var="f" value="{!$ObjectType.phone.FieldSets.checkfieldset}"> 
+                            <td>
+                                <apex:outputField value="{!phone[f]}" /> 
+                            </td> 
+                        </apex:repeat> 
+                    </tr> 
+                </apex:repeat>
+            </table>
         </ul>
     </form>
 </html>
